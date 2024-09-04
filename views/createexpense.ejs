@@ -1,0 +1,19 @@
+<%- include("./partition/header")%>
+<%- include("./partition/nav")%>
+
+<form action="/expense/expense-save" method="post">
+    <input type="text" name="title" id="" placeholder="Enter Title here">
+    <input type="text" name="amount" id="" placeholder="Enter amount here">
+    <input type="text" name="category" id="" placeholder="Enter Categiry here">
+    <input type="text" name="remark" id="" placeholder="Enter remark here">
+    <select name="paymentmode" id="">
+        <option value="" disabled selected>Select an option</option>
+        <option value="cash">Cash</option>
+        <option value="upi">UPI</option>
+        <option value="card">Card</option>
+    </select>
+    <button>Save Expense</button>
+</form>
+
+
+<%- include("./partition/footer")%>

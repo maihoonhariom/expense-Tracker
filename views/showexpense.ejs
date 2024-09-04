@@ -1,0 +1,10 @@
+<%- include("./partition/header")%>
+<%- include("./partition/nav")%>
+
+<ul>
+    <% expenses.forEach((expense)=>{ %>
+        <li><%= expense.title %></li>
+    <% }) %>
+</ul>
+
+<%- include("./partition/footer")%>
