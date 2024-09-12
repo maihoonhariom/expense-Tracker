@@ -8,7 +8,9 @@
 <h2><%= expense.paymentmode%></h2>
 
 <button>
-    <a href="/expense/detele/<%= expense.id%>">Delete Expense</a>
+    <a href="/expense/delete/<%= expense.id%>">Delete Expense</a>
 </button>
-<button><a href="/expense/update/<%= expense.id%>">Update Expense</a></button>
+<button>
+    <a href="/expense/update/<%= expense.id%>">Update Expense</a>
+</button>
 <%- include("./partition/footer") %>

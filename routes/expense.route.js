@@ -13,6 +13,7 @@ router.post("/expense-save", async (req,res,next)=>{
     try{
         const expense = new expenseSchema(req.body);
         await expense.save();
+        res.redirect("/");
     }
     catch (error) {
         console.log(`Error in /expense-save ${error.message}`);   
@@ -33,7 +34,7 @@ router.get("/expense-show", async (req,res,next)=>{
 router.get("/details/:id", async(req,res,next)=>{
         try {
             const expense = await expenseSchema.findById(req.params.id);
-            console.log(expense);
+            
             
             res.render("showexpensedetails",{
                 title: "Expense Tracker | Expense Details",
@@ -43,5 +44,14 @@ router.get("/details/:id", async(req,res,next)=>{
         } catch (error) {
             next(error);
         }
+})
+
+router.get("/delete/:id", async (req,res,next)=>{
+    try {
+       await expenseSchema.findByIdAndDelete(req.params.id);
+       res.redirect("/expense/expense-show");
+    } catch (error) {
+        next(error);
+    }
 })
 module.exports = router;
