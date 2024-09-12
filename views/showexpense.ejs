@@ -3,7 +3,9 @@
 
 <ul>
     <% expenses.forEach((expense)=>{ %>
-        <li><%= expense.title %></li>
+        <li>
+            <a href=""><%= expense.title %> | <a href="/expense/details/<%= expense.id%>">Details</a></a>
+        </li>
     <% }) %>
 </ul>
 

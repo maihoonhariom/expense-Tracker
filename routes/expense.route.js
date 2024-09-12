@@ -29,4 +29,19 @@ router.get("/expense-show", async (req,res,next)=>{
         console.log(`Error in /expense-show ${error.message}`);
     }
 })
+
+router.get("/details/:id", async(req,res,next)=>{
+        try {
+            const expense = await expenseSchema.findById(req.params.id);
+            console.log(expense);
+            
+            res.render("showexpensedetails",{
+                title: "Expense Tracker | Expense Details",
+                expense:expense,
+                user: req.user
+            });
+        } catch (error) {
+            next(error);
+        }
+})
 module.exports = router;
