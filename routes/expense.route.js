@@ -34,8 +34,6 @@ router.get("/expense-show", async (req,res,next)=>{
 router.get("/details/:id", async(req,res,next)=>{
         try {
             const expense = await expenseSchema.findById(req.params.id);
-            
-            
             res.render("showexpensedetails",{
                 title: "Expense Tracker | Expense Details",
                 expense:expense,
@@ -54,4 +52,30 @@ router.get("/delete/:id", async (req,res,next)=>{
         next(error);
     }
 })
+
+
+//edit expense
+router.get("/update/:id", async (req, res, next)=>{
+    try {
+        const edit = await expenseSchema.findById(req.params.id)
+        res.render("editexpense", {
+            title: "Expense Tracker | Expense Edit",
+            detail: edit
+        })
+    } catch (error) {
+        next(error);
+    }
+})
+
+router.post("/update/:id", async (req,res, next)=>{
+    try{
+        await expenseSchema.findByIdAndUpdate(req.params.id, req.body);
+        res.redirect("/expense/details/"+ req.params.id);
+    }catch(error){
+        next(error);
+    }
+
+})
+
+
 module.exports = router;

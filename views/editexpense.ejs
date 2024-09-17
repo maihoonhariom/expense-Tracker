@@ -1,0 +1,20 @@
+<%- include("./partition/header")%>
+<%- include("./partition/nav")%>
+<a href="/expense/details/<%= detail._id%>" class="bg-blue-400 text-white text-3xl rounded-full absolute left-5 translate-y-5"><i class="ri-arrow-left-fill"></i></a></i>
+<div class="pt-2 h-5/6 w-full flex flex-col items-center justify-center">
+    <h1 class="text-3xl font-bold text-blue-600 ">Edit Expense</h1>
+    <form action="/expense/update/<%= detail._id%>" method="post" class="mt-16 bg-blue-100 h-3/5 w-1/3 flex flex-col gap-4 rounded-2xl p-4">
+        <input disabled type="text" class="bg-white p-4 rounded-full" name="title" id="" placeholder="Enter Title here" value="<%= detail.title%>">
+        <input type="text" class="p-4 rounded-full" name="amount" id="" placeholder="Enter amount here" value="<%= detail.amount%>">
+        <input type="text" class="p-4 rounded-full" name="category" id="" placeholder="Enter Categiry here" value="<%= detail.category%>">
+        <input type="text" class="p-4 rounded-full" name="remark" id="" placeholder="Enter remark here" value="<%= detail.remark%>">
+        <select value="<%= detail.paymentmode%>" name="paymentmode" id="" class="p-4 rounded-full ">
+            <option value="cash">Cash</option>
+            <option value="upi">UPI</option>
+            <option value="card">Card</option>
+        </select>
+        <button class="bg-blue-500 w-1/2 p-4 rounded-full place-self-center">Update Expense</button>
+    </form>
+</div>
+</div>
+<%- include("./partition/footer")%>
