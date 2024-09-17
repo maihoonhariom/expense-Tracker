@@ -1,16 +1,45 @@
 <%- include("./partition/header") %>
-<%- include("./partition/nav") %>
-<h1>Expense Details</h1>
-<h2><%= expense.title%></h2>
-<h2><%= expense.amount%></h2>
-<h2><%= expense.category%></h2>
-<h2><%= expense.remark%></h2>
-<h2><%= expense.paymentmode%></h2>
+    <%- include("./partition/nav") %>
+        <div class="shadow-2xl h-screen flex flex-col justify-center items-center gap-4 ">
+            <h1 class="font-bold text-3xl bg-red-300 w-1/3 text-center p-2">Expense Detail</h1>
+            <div class="bg-red-300 shadow-2xl h-3/5 w-1/3 flex flex-col justify-around p-2">
+                <div class="flex flex-col gap-4">
+                    <div class="bg-blue-100 flex p-4 justify-between">
+                        <strong>Title:</strong>
+                        <h2>
+                            <%= expense.title%>
+                        </h2>
+                    </div>
+                    <div class="bg-blue-100 flex p-4 justify-between">
+                        <strong>Amount:</strong>
+                        <h2>
+                            <%= expense.amount%>
+                        </h2>
+                    </div>
+                    <div class="bg-blue-100 flex p-4 justify-between">
+                        <strong>Category:</strong>
+                        <h2>
+                            <%= expense.category%>
+                        </h2>
+                    </div>
+                    <div class="bg-blue-100 flex p-4 justify-between">
+                        <strong>Remark:</strong>
+                        <h2>
+                            <%= expense.remark%>
+                        </h2>
+                    </div>
+                    <div class="bg-blue-100 flex p-4 justify-between">
+                        <strong>Payment:</strong>
+                        <h2>
+                            <%= expense.paymentmode%>
+                        </h2>
+                    </div>
+                </div>
 
-<button>
-    <a href="/expense/delete/<%= expense.id%>">Delete Expense</a>
-</button>
-<button>
-    <a href="/expense/update/<%= expense.id%>">Update Expense</a>
-</button>
-<%- include("./partition/footer") %>
+                <div class="flex justify-center gap-4">
+                    <a class="bg-blue-100 p-2" href="/expense/delete/<%= expense.id%>">Delete Expense</a>
+                    <a class="bg-blue-100 p-2" href="/expense/update/<%= expense.id%>">Edit Expense</a>
+                </div>
+            </div>
+        </div>
+        <%- include("./partition/footer") %>
