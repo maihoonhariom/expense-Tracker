@@ -1,15 +1,27 @@
-<%- include("./partition/header")%>
-<%- include("./partition/nav")%>
-<ul class="h-screen flex flex-col justify-center items-center gap-4">
-    <h1 class="font-bold text-3xl bg-red-300 w-1/3 text-center p-2">All Expenses</h1>
-    <div class="bg-red-300 shadow-2xl h-3/5 w-1/3  flex flex-wrap justify-around  overflow-auto overflow-x-hidden gap-4">
-        <% expenses.forEach((expense)=>{ %>   
-            <li class="h-20 w-full flex justify-around items-center hover:bg-[#f0f0f0]">
-                <h4 class="bg-blue-200 w-3/5 p-4 h-14 font-bold rounded-lg"><%= expense.title %></h4>
-                <a class="bg-blue-300 w-24 text-center p-4 h-14 hover:bg-blue-600 font-bold hover:text-black rounded-lg" href="/expense/details/<%= expense.id%>">Details</a>   
+<%- include("./partition/header") %>
+<%- include("./partition/nav") %>
+
+<ul class="h-screen flex flex-col justify-center items-center gap-6 bg-gray-50">
+    <!-- Page Title -->
+    <h1 class="font-extrabold text-4xl bg-gradient-to-r from-red-300 to-red-500 w-2/3 text-center p-4 rounded-lg shadow-md">All Expenses</h1>
+
+    
+    <div class="bg-white shadow-xl h-3/5 w-2/3 flex flex-col justify-around items-center overflow-auto overflow-x-hidden p-4 gap-4 rounded-lg">
+        <% expenses.forEach((expense) => { %>   
+         
+            <li class="h-20 w-full flex justify-between items-center bg-gray-100 p-4 rounded-lg hover:bg-gray-200 shadow-sm">
+            
+                <h4 class="bg-blue-200 w-3/5 p-4 font-semibold text-lg rounded-lg truncate">
+                    <%= expense.title %>
+                </h4>
+
+              
+                <a class="bg-blue-400 text-white w-24 text-center p-4 font-semibold rounded-lg hover:bg-blue-500 transition duration-300 ease-in-out" href="/expense/details/<%= expense.id%>">
+                    Details
+                </a>   
             </li>
-            <% }) %>
+        <% }) %>
     </div>
 </ul>
 
-<%- include("./partition/footer")%>
+<%- include("./partition/footer") %>

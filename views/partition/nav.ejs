@@ -1,17 +1,29 @@
-<nav class="bg-red-400 h-20 flex justify-between items-center">
+<nav class="bg-gradient-to-r from-red-500 to-pink-500 h-20 px-8 flex justify-between items-center shadow-lg fixed top-0 left-0 right-0 ">
+  
     
-    <h3 class="ml-7 text-3xl font-bold">Expense Tracker</h3>
+    <h3 class="text-white text-3xl font-extrabold tracking-wider">Expense Tracker</h3>
     
-    <div class="flex justify-around w-1/2 font-bold">
-    <a href="/">HOME</a>
-    <a href="/sighup">Sigh Up</a>
-    <a href="/sighin">Sigh In</a>
-    <a href="/expense/expense-show">All expenses</a>
-    <a href="/expense/create-expense">Create Expense</a>
+    
+    <div class="hidden md:flex space-x-8 font-semibold text-white">
+      <a href="/" class="hover:text-yellow-300 transition duration-300 ease-in-out">HOME</a>
+      <a href="/user/signup" class="hover:text-yellow-300 transition duration-300 ease-in-out">Sign Up</a>
+      <a href="/user/signin" class="hover:text-yellow-300 transition duration-300 ease-in-out">Sign In</a>
+      <a href="/expense/expense-show" class="hover:text-yellow-300 transition duration-300 ease-in-out">All Expenses</a>
+      <a href="/expense/create-expense" class="hover:text-yellow-300 transition duration-300 ease-in-out">Create Expense</a>
     </div>
-</nav> 
+  
+    
+    <div class="md:hidden">
+      <button id="mobile-menu-button" class="text-white focus:outline-none">
+        <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"/>
+        </svg>
+      </button>
+    </div>
+  </nav>
+  
+  
 
+  
 
-
-
-
+  
