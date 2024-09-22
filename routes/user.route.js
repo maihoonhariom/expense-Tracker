@@ -47,7 +47,7 @@ router.post("/signin", passport.authenticate("local"), async(req,res, next)=>{
     }
 })
 
-router.get("profile", isLoggedIn, async(req,res,next)=>{
+router.get("/profile", isLoggedIn, async(req,res,next)=>{
     try {
         res.render("profileuser",{
             title:"Expense Tracker | Profile",
@@ -60,7 +60,7 @@ router.get("profile", isLoggedIn, async(req,res,next)=>{
 
 router.get("/signout", isLoggedIn, async (req, res)=>{
     req.logout(()=>{
-        res.redirect("/user/singin");
+        res.redirect("/user/signin");
     });
 });
 
